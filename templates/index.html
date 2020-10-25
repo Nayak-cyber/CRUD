@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>CRUD App:-</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="/" method="post">
+        <div class="input-group flex-nowrap my-3">
+            <div class="input-group-prepend">
+            </div>
+            <input type="text" name="text" class="form-control" placeholder="Enter the text" aria-label="Username"
+                aria-describedby="addon-wrapping">
+        </div>
+        <button type="submit" name=submit class="btn btn-outline-success">Submit</button>
+        </form>
+    </div>
+
+    <div>
+        <!-- Todo Fetch from for loop -->
+        {% for posts in posts%}
+        <form action="/delete" method="post">
+        <div class="card container">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">{{posts.text}}</p>
+              <a href="/delete/{{posts.sno}}" name="delete" class="btn btn-primary">Delete</a>
+              <a href="/edit/{{posts.sno}}" name="edit" class="btn btn-primary">Edit</a>
+            </div>
+          </div>
+        </form>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
